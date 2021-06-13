@@ -13,6 +13,7 @@ RUN \
  apt-get update && \
  apt-get install -y python3.8 curl wget unzip python3.8-distutils gnupg sudo apt-utils tzdata && \
  wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
+ wget -q -O - https://linux.kite.com/dls/linux/current &&\
  echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list && \
  apt-get update && \
  apt-get install -y python3-dev && \
@@ -55,6 +56,18 @@ RUN mkdir -p /root/.fonts
 ADD ipaexg.ttf /root/.fonts/.
 ADD ipaexm.ttf /root/.fonts/.
 
+WORKDIR ./work_dir
+RUN git clone git@github.com:keisuke611/fashion_collaboration_analysis.git
+RUN cd /fashion_collaboration_analysis
+
+RUN git config --global user.email s.m.keisuke0611@gmail.com && \
+	git config --global user.name keisuke611 && \
+	git commit --allow-empty -m 'first commit' && \
+	git push --set-upstream origin master
+
 
 # Define default command.
 CMD ["/bin/bash"]
+
+
+#RUN jupyter lab  --NotebookApp.token='keisuke423' --ip=0.0.0.0 --no-browser --allow-root
