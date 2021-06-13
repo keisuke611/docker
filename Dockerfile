@@ -56,15 +56,16 @@ RUN mkdir -p /root/.fonts
 ADD ipaexg.ttf /root/.fonts/.
 ADD ipaexm.ttf /root/.fonts/.
 
-RUN cd work_dir && \
-    git clone git@github.com:keisuke611/fashion_collaboration_analysis.git && \
+#RUN cd work_dir && \
+#    git clone git@github.com:keisuke611/fashion_collaboration_analysis.git && \
 
-WORKDIR work_dir/fashion_collaboration_analysis/
+#WORKDIR work_dir/fashion_collaboration_analysis/
 
 #まずgitのssh-addが渡っていないといけないので,composeのenvのあとにやりたい
 #毎回やる必要はない。runのときだけやりたい。この場合composeとDockerfileどっちに書くのがいいのか
 
 
+#dockerコンテナ内にsshaddが飛んで無いので無理
 CMD git config --global user.email s.m.keisuke0611@gmail.com && \
 	git config --global user.name keisuke611 && \
 	git commit --allow-empty -m 'first commit' && \
