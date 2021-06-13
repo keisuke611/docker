@@ -28,8 +28,6 @@ services:
 
 
 
-
-
     #networks:
      # - default
     #runtime: nvidia
