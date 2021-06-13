@@ -45,7 +45,9 @@ ADD requirements.txt ./
 RUN pip install --upgrade pip && \
 #pip install requests bs4 pandas jupyter jupytext selenium openpyxl &&\
 #pip install chromedriver-binary==90.0.4430.24.0
-pip install -r requirements.txt
+
+#いちいちpipすべてインストールしてると時間かかるので
+#pip install -r requirements.txt
 
 ADD 00_init.ipy ./.ipython/profile_default/
 
@@ -55,6 +57,8 @@ ADD 00_init.ipy ./.ipython/profile_default/
 RUN mkdir -p /root/.fonts
 ADD ipaexg.ttf /root/.fonts/.
 ADD ipaexm.ttf /root/.fonts/.
+
+ADD config /.ssh/
 
 #RUN cd work_dir && \
 #    git clone git@github.com:keisuke611/fashion_collaboration_analysis.git && \
