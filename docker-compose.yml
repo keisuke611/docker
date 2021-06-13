@@ -33,14 +33,12 @@ services:
     environment:
       - JUPYTER_ENABLE_LAB=yes
 #    restart: unless-stopped
-    command: >
-    sh -c '
-    cd work_dir &&
-    git clone git@github.com:keisuke611/fashion_collaboration_analysis.git &&
-    cd fashion_collaboration_analysis &&
-    git config --global user.email s.m.keisuke0611@gmail.com &&
-    git config --global user.name keisuke611  &&
-    git commit --allow-empty -m 'first commit'  &&
-    git push --set-upstream origin master &&
+    command: sh -c ' cd work_dir && \
+    git clone git@github.com:keisuke611/fashion_collaboration_analysis.git && \
+    cd fashion_collaboration_analysis && \
+    git config --global user.email s.m.keisuke0611@gmail.com && \
+    git config --global user.name keisuke611  && \
+    git commit --allow-empty -m 'first commit'  && \
+    git push --set-upstream origin master && \
     jupyter lab --NotebookApp.token='keisuke423' --ip=0.0.0.0 --no-browser --allow-root
     '
