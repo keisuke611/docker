@@ -15,6 +15,7 @@ RUN \
  wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
  echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list && \
  apt-get update && \
+ apt-get install -y python3-dev && \
  apt-get install -y google-chrome-stable && \
  curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
  rm -f /usr/bin/python /usr/bin/python3 && \
@@ -23,8 +24,12 @@ RUN \
  python3 get-pip.py && \
  rm -f get-pip.py && \
  apt-get install -y language-pack-ja-base language-pack-ja && \
- locale-gen ja_JP.UTF-8
-
+ locale-gen ja_JP.UTF-8 &&\
+ apt-get install -y  gcc &&  \
+ apt-get install -y g++  && \
+ apt-get install -y  language-pack-ja && \
+ update-locale LANG=ja_JP.UTF-8 && \
+ apt-get install -y locales-all
 #追加でgitもインストール
 RUN apt-get install -y git
 
@@ -32,7 +37,7 @@ RUN apt-get install -y git
 RUN mkdir /work_dir
 
 # requirements.txt をコンテナにコピー
-ADD requirements.txt /work_dir/
+ADD requirements.txt ./
 
 #パッケージをインストール
 # ここはchromeのバージョンに合わせて変える。
