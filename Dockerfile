@@ -82,7 +82,7 @@ ADD ipaexm.ttf /root/.fonts/.
 
 
 # Define default command.
-#CMD ["/bin/bash"]
+CMD ["/bin/bash"]
 
 
 #RUN jupyter lab  --NotebookApp.token='keisuke423' --ip=0.0.0.0 --no-browser --allow-root
