@@ -7,6 +7,7 @@ services:
 #    container_name: datascience-notebook
     container_name: ubuntu20-selenium
     tty: true
+    stdin_open: true
     ports:
       - 8889:8888
     #volumes:
