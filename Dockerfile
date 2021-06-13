@@ -56,7 +56,8 @@ RUN mkdir -p /root/.fonts
 ADD ipaexg.ttf /root/.fonts/.
 ADD ipaexm.ttf /root/.fonts/.
 
-WORKDIR ./work_dir
+WORKDIR /work_dir
+
 CMD git clone git@github.com:keisuke611/fashion_collaboration_analysis.git
 CMD cd /fashion_collaboration_analysis
 
@@ -65,7 +66,7 @@ CMD git config --global user.email s.m.keisuke0611@gmail.com && \
 	git commit --allow-empty -m 'first commit' && \
 	git push --set-upstream origin master
 
-CMD jupyter lab --NotebookApp.token='keisuke423' --ip=0.0.0.0 --no-browser --allow-root
+#CMD jupyter lab --NotebookApp.token='keisuke423' --ip=0.0.0.0 --no-browser --allow-root
 
 
 # Define default command.
