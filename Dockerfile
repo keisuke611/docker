@@ -30,7 +30,8 @@ RUN \
  apt-get install -y g++  && \
  apt-get install -y  language-pack-ja && \
  update-locale LANG=ja_JP.UTF-8 && \
- apt-get install -y locales-all
+ apt-get install -y locales-all && \
+ apt-get install -y vim 
 #追加でgitもインストール
 RUN apt-get install -y git
 
