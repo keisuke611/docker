@@ -57,10 +57,10 @@ ADD ipaexg.ttf /root/.fonts/.
 ADD ipaexm.ttf /root/.fonts/.
 
 WORKDIR ./work_dir
-RUN git clone git@github.com:keisuke611/fashion_collaboration_analysis.git
-RUN cd /fashion_collaboration_analysis
+CMD git clone git@github.com:keisuke611/fashion_collaboration_analysis.git
+CMD cd /fashion_collaboration_analysis
 
-RUN git config --global user.email s.m.keisuke0611@gmail.com && \
+CMD git config --global user.email s.m.keisuke0611@gmail.com && \
 	git config --global user.name keisuke611 && \
 	git commit --allow-empty -m 'first commit' && \
 	git push --set-upstream origin master
