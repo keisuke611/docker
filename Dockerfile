@@ -78,7 +78,7 @@ ADD ipaexm.ttf /root/.fonts/.
 
 #CMD git pull 
 
-#CMD 
+CMD ["/bin/bash"]
 
 
 # Define default command.
