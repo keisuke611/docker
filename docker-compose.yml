@@ -1,0 +1,36 @@
+version: '2.3'
+
+services:
+  notebook:
+    build: ./
+    image: ubuntu20-selenium
+#    container_name: datascience-notebook
+    container_name: ubuntu20-selenium
+    
+    tty: true
+    stdin_open: true
+    ports:
+      - 8889:8888
+    #volumes:
+     # - /mnt/seagate8t0/m-ochi/ochi_gpu_jupyter2/ipnbs/:/home/user1/work/
+    user: root
+    volumes:
+            - '$SSH_AUTH_SOCK:/ssh-agent'
+    environment:
+            - SSH_AUTH_SOCK=/ssh-agent
+
+    environment:
+      NB_UID: 1000
+      NB_GID: 100
+      GRANT_SUDO: "yes"
+    privileged: true
+
+
+    #networks:
+     # - default
+    #runtime: nvidia
+    #ipc: host
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+#    restart: unless-stopped
+    command: jupyter lab --NotebookApp.token='keisuke423' --ip=0.0.0.0 --no-browser --allow-root
