@@ -46,7 +46,7 @@ RUN pip install --upgrade pip && \
 #pip install chromedriver-binary==90.0.4430.24.0
 pip install -r requirements.txt
 
-
+ADD 00_init.ipy ./ipynthon/profile_default/z
 
 
 # フォントの設定。Dockerfileと同じ場所にIPAフォントを配置しておく。
