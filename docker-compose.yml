@@ -38,6 +38,7 @@ services:
       - JUPYTER_ENABLE_LAB=yes
 #    restart: unless-stopped
     command: >
+    #インデントが必要
       sh -c "
       cd work_dir
       git clone git@github.com:keisuke611/fashion_collaboration_analysis.git 
