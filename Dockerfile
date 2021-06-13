@@ -47,7 +47,7 @@ RUN pip install --upgrade pip && \
 #pip install chromedriver-binary==90.0.4430.24.0
 pip install -r requirements.txt
 
-ADD 00_init.ipy ./ipynthon/profile_default/z
+ADD 00_init.ipy ./ipynthon/profile_default/
 
 
 # フォントの設定。Dockerfileと同じ場所にIPAフォントを配置しておく。
@@ -56,7 +56,11 @@ RUN mkdir -p /root/.fonts
 ADD ipaexg.ttf /root/.fonts/.
 ADD ipaexm.ttf /root/.fonts/.
 
-WORKDIR /work_dir
+CMD /work_dir
+
+#まずgitのssh-addが渡っていないといけないので,composeのenvのあとにやりたい
+#毎回やる必要はない。runのときだけやりたい。この場合composeとDockerfileどっちに書くのがいいのか
+
 
 CMD git clone git@github.com:keisuke611/fashion_collaboration_analysis.git
 CMD cd /fashion_collaboration_analysis
