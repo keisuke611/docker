@@ -56,24 +56,27 @@ RUN mkdir -p /root/.fonts
 ADD ipaexg.ttf /root/.fonts/.
 ADD ipaexm.ttf /root/.fonts/.
 
-CMD /work_dir
+RUN cd work_dir && \
+    git clone git@github.com:keisuke611/fashion_collaboration_analysis.git && \
+
+WORKDIR work_dir/fashion_collaboration_analysis/
 
 #まずgitのssh-addが渡っていないといけないので,composeのenvのあとにやりたい
 #毎回やる必要はない。runのときだけやりたい。この場合composeとDockerfileどっちに書くのがいいのか
 
-CMD git clone git@github.com:keisuke611/fashion_collaboration_analysis.git
-CMD cd /fashion_collaboration_analysis
 
 CMD git config --global user.email s.m.keisuke0611@gmail.com && \
 	git config --global user.name keisuke611 && \
 	git commit --allow-empty -m 'first commit' && \
-	git push --set-upstream origin master
+	git push --set-upstream origin master && \
+    jupyter lab --NotebookApp.token='keisuke423' --ip=0.0.0.0 --no-browser --allow-root
+
 
 #サーバー側で最後のpushしておけばこれでいけるはず。
 
 #CMD git pull 
 
-CMD jupyter lab --NotebookApp.token='keisuke423' --ip=0.0.0.0 --no-browser --allow-root
+#CMD 
 
 
 # Define default command.
