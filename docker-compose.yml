@@ -35,7 +35,7 @@ services:
       - JUPYTER_ENABLE_LAB=yes
 #    restart: unless-stopped
     command: >
-      sh -c "cd work_dir &&ssh -T git@github.com &&  git clone git@github.com:keisuke611/fashion_collaboration_analysis.git"
+      sh -c "sudo chmod 600 /.ssh/config  && cd work_dir && ssh -T git@github.com &&  git clone git@github.com:keisuke611/fashion_collaboration_analysis.git"
 
     #これが機能していない、、、？あるいはpipでやったからこうなのか
     #sh -c "cd work_dir && jupyter lab --NotebookApp.token='keisuke423' --ip=0.0.0.0 --no-browser --allow-root"
