@@ -66,12 +66,12 @@ ADD ipaexm.ttf /root/.fonts/.
 
 
 #dockerコンテナ内にsshaddが飛んで無いので無理
-CMD git config --global user.email s.m.keisuke0611@gmail.com && \
-	git config --global user.name keisuke611 && \
-	git commit --allow-empty -m 'first commit' && \
-	git push --set-upstream origin master && \
-    jupyter lab --NotebookApp.token='keisuke423' --ip=0.0.0.0 --no-browser --allow-root && \
-    ["/bin/bash"]
+#CMD git config --global user.email s.m.keisuke0611@gmail.com && \
+#	git config --global user.name keisuke611 && \
+#	git commit --allow-empty -m 'first commit' && \
+#	git push --set-upstream origin master && \
+#   jupyter lab --NotebookApp.token='keisuke423' --ip=0.0.0.0 --no-browser --allow-root && \
+#    ["/bin/bash"]
 
 
 #サーバー側で最後のpushしておけばこれでいけるはず。
