@@ -61,11 +61,14 @@ ADD ipaexm.ttf /root/.fonts/.
 
 ADD config /.ssh/
 
-WORKDIR work_dir/
 
-CMD git clone -o StrictHostKeyChecking=no  git@github.com:keisuke611/fashion_collaboration_analysis.git 
+CMD touch /.ssh/known_hosts && \
+    ssh-keyscan github.com >> /.ssh/known_hosts && \
+    cd work_dir && \
+    git clone -o StrictHostKeyChecking=no  git@github.com:keisuke611/fashion_collaboration_analysis.git 
 
 #WORKDIR work_dir/fashion_collaboration_analysis/
+
 
 #まずgitのssh-addが渡っていないといけないので,composeのenvのあとにやりたい
 #毎回やる必要はない。runのときだけやりたい。この場合composeとDockerfileどっちに書くのがいいのか
