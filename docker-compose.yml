@@ -14,9 +14,11 @@ services:
      # - /mnt/seagate8t0/m-ochi/ochi_gpu_jupyter2/ipnbs/:/home/user1/work/
     user: root
     volumes:
-            - '$SSH_AUTH_SOCK:/ssh-agent'
+            #- '$SSH_AUTH_SOCK:/ssh-agent'
+            - "$SSH_AUTH_SOCK:/tmp/ssh-agent.sock"
     environment:
-            -  SSH_AUTH_SOCK=/ssh-agent
+            #-  SSH_AUTH_SOCK=/ssh-agent
+            - SSH_AUTH_SOCK: "/tmp/ssh-agent.sock"
 
     environment:
       NB_UID: 1000
@@ -36,7 +38,7 @@ services:
 #    restart: unless-stopped
     command: >
       sh -c "ls && cd work_dir  && 
-      ssh -o StrictHostKeyChecking=no -T git@github.com"
+      ssh -o StrictHostKeyChecking=no -i ./ssh-agent -T git@github.com"
     # && \
     #git clone git@github.com:keisuke611/fashion_collaboration_analysis.git && \
     #cd fashion_collaboration_analysis/ && \
