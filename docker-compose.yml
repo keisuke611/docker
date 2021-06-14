@@ -9,7 +9,7 @@ services:
     tty: true
     stdin_open: true
     ports:
-      - 8889:8888
+      - 8889:8889
     #volumes:
      # - /mnt/seagate8t0/m-ochi/ochi_gpu_jupyter2/ipnbs/:/home/user1/work/
     user: root
