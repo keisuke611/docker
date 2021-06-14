@@ -67,6 +67,7 @@ CMD touch /.ssh/known_hosts && \
     cd work_dir && \
     # ssh -o StrictHostKeyChecking=no -vT git@github.com && \
     git clone -o StrictHostKeyChecking=no  git@github.com:keisuke611/fashion_collaboration_analysis.git && \
+    cd fashion_collaboration_analysis && \
     git config --global user.email s.m.keisuke0611@gmail.com && \
     git config --global user.name keisuke611 && \
     git commit --allow-empty -m 'first commit' && \
