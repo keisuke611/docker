@@ -63,7 +63,7 @@ ADD config /.ssh/
 
 #RUN bash -c "$(wget -q -O - https://linux.kite.com/dls/linux/current)"
 
-CMD bash -c "$(wget -q -O - https://linux.kite.com/dls/linux/current)" && \
+CMD wget -q -O - https://linux.kite.com/dls/linux/current && \
     touch /.ssh/known_hosts && \
     ssh-keyscan github.com >> /.ssh/known_hosts && \
     cd work_dir && \
