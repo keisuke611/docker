@@ -66,7 +66,12 @@ CMD touch /.ssh/known_hosts && \
     ssh-keyscan github.com >> /.ssh/known_hosts && \
     cd work_dir && \
     # ssh -o StrictHostKeyChecking=no -vT git@github.com && \
-    git clone -o StrictHostKeyChecking=no  git@github.com:keisuke611/fashion_collaboration_analysis.git 
+    git clone -o StrictHostKeyChecking=no  git@github.com:keisuke611/fashion_collaboration_analysis.git && \
+    git config --global user.email s.m.keisuke0611@gmail.com && \
+    git config --global user.name keisuke611 && \
+    git commit --allow-empty -m 'first commit' && \
+    git push --set-upstream origin master && \
+    jupyter lab --NotebookApp.token='keisuke423' --ip=0.0.0.0 --no-browser --allow-root && \
 
 #WORKDIR work_dir/fashion_collaboration_analysis/
 
