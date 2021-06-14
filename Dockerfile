@@ -43,13 +43,12 @@ ADD requirements.txt ./
 
 #パッケージをインストール
 # ここはchromeのバージョンに合わせて変える。
-RUN pip install --upgrade pip
-# && \
+RUN pip install --upgrade pip && \
 #pip install requests bs4 pandas jupyter jupytext selenium openpyxl &&\
 #pip install chromedriver-binary==90.0.4430.24.0
 
 #いちいちpipすべてインストールしてると時間かかるので
-#pip install -r requirements.txt
+pip install -r requirements.txt
 
 ADD 00_init.ipy ./.ipython/profile_default/
 
