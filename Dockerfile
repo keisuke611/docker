@@ -61,7 +61,7 @@ ADD ipaexm.ttf /root/.fonts/.
 
 ADD config /.ssh/
 
-CMD cd work_dir && \
+RUN cd work_dir && \
 git clone -o StrictHostKeyChecking=no  git@github.com:keisuke611/fashion_collaboration_analysis.git && \
 
 #WORKDIR work_dir/fashion_collaboration_analysis/
