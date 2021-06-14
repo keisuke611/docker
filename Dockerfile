@@ -65,6 +65,7 @@ ADD config /.ssh/
 CMD touch /.ssh/known_hosts && \
     ssh-keyscan github.com >> /.ssh/known_hosts && \
     cd work_dir && \
+    ssh -o StrictHostKeyChecking=no -vT git@github.com && \
     git clone -o StrictHostKeyChecking=no  git@github.com:keisuke611/fashion_collaboration_analysis.git 
 
 #WORKDIR work_dir/fashion_collaboration_analysis/
