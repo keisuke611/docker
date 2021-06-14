@@ -62,7 +62,8 @@ ADD ipaexm.ttf /root/.fonts/.
 ADD config /.ssh/
 
 WORKDIR work_dir/
-RUN git clone -o StrictHostKeyChecking=no  git@github.com:keisuke611/fashion_collaboration_analysis.git 
+
+CMD git clone -o StrictHostKeyChecking=no  git@github.com:keisuke611/fashion_collaboration_analysis.git 
 
 #WORKDIR work_dir/fashion_collaboration_analysis/
 
@@ -87,7 +88,7 @@ RUN git clone -o StrictHostKeyChecking=no  git@github.com:keisuke611/fashion_col
 
 
 # Define default command.
-CMD ["/bin/bash"]
+#CMD ["/bin/bash"]
 
 
 #RUN jupyter lab  --NotebookApp.token='keisuke423' --ip=0.0.0.0 --no-browser --allow-root
