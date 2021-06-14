@@ -3,9 +3,9 @@ version: '2.3'
 services:
   notebook:
     build: ./
-    image: ubuntu20-selenium
+    image: ubuntu-selenium
 #    container_name: datascience-notebook
-    container_name: ubuntu20-selenium
+    container_name: ubuntu-selenium
     tty: true
     stdin_open: true
     ports:
